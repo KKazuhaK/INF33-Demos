@@ -1,0 +1,7 @@
+{
+  "name": "DeviceResourceExamples",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

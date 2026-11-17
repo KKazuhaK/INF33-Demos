@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Daily selfie
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Daily selfie</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    @if(!finishedReminder())
+    {
+      <ion-button (click)="scheduleReminder()">Schedule a reminder</ion-button>
+    }
+    @if(finishedReminder() && !finishedLocation())
+    {
+      <ion-button (click)="getLocation()">Print geolocation</ion-button>
+    }
+    @if(finishedLocation())
+    {
+      <ion-item>Coordinates: ({{latCoord()}}, {{longCoord()}})</ion-item>
+
+      <ion-button (click)="shareStuff()">Share my coordinates</ion-button>
+    }
+  </div>
+</ion-content>
