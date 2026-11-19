@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Data Saving Demo </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Data Saving Demo</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    @if(namedSaved())
+    {
+      <ion-item>
+        Welcome, {{name}}! {{decorativeText}}
+      </ion-item>
+
+      <ion-item>Your favorite season:</ion-item>
+      <ion-picker>
+        <ion-picker-column [value]="pickerValue" (ionChange)="onIonChange($event)">
+          <ion-picker-column-option value="" disabled="true">--</ion-picker-column-option>
+          <ion-picker-column-option value="Spring">Spring</ion-picker-column-option>
+          <ion-picker-column-option value="Summer">Summer</ion-picker-column-option>
+          <ion-picker-column-option value="Fall">Fall</ion-picker-column-option>
+          <ion-picker-column-option value="Winter">Winter</ion-picker-column-option>
+        </ion-picker-column>
+      </ion-picker>
+
+      <ion-item>
+        <ion-button (click)="clearData()">Reset data</ion-button>
+      </ion-item>
+    } @else {
+      <ion-item>
+        <ion-input [(ngModel)]="name" placeholder="Enter your name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button (click)="saveName()">Save</ion-button>
+      </ion-item>
+    }
+  </div>
+</ion-content>
